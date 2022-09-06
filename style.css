@@ -1,0 +1,58 @@
+div#board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+.bookCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    row-gap: 5px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    position: relative;
+    height: min(159px);
+}
+.cardRemoveButton {
+    position: absolute;
+    left: 84%;
+    top: 5px;
+    color: gray;
+}
+.cardContent {
+    padding: 35px 0px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.bookTitle {
+    font-weight: bold;
+    padding-bottom: 13px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.status-unread {
+    color: red;
+    font-weight: bold;
+}
+.status-read {
+    color: green;
+    font-weight: bold;
+}
+.addCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addCard svg {
+    opacity: 80%;
+    color: gray;
+}
