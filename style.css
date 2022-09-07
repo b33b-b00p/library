@@ -13,7 +13,7 @@ div#board {
     border-radius: 10px;
     background-color: #f0f0f0;
     position: relative;
-    height: min(159px);
+    height: 199px;
 }
 .cardRemoveButton {
     position: absolute;
@@ -22,22 +22,24 @@ div#board {
     color: gray;
 }
 .cardContent {
-    padding: 35px 0px;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    row-gap: 16px;
 }
 .bookTitle {
     font-weight: bold;
-    padding-bottom: 13px;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+.content {
+    line-height: 1.8;
 }
 .status-unread {
     color: red;
@@ -53,6 +55,9 @@ div#board {
     justify-content: center;
 }
 .addCard svg {
-    opacity: 80%;
+    opacity: 70%;
     color: gray;
+}
+.bookCard:last-child {
+    width: 153px;
 }
