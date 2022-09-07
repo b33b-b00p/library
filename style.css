@@ -1,25 +1,48 @@
-div#board {
+body {
+    background-color: #ebeef2;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%;
+}
+#shelf {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 13px;
+    padding: 40px;
+    background: #ced4da;
+    box-shadow: 0px 0px 3px #bfbfbf;
+    border: 1px solid darkgray;
+    border-radius: 12px;
+    height: 100%;
+    margin-bottom: 30px;
 }
 .bookCard {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    row-gap: 5px;
-    padding: 20px;
-    border: 1px solid black;
+    padding: 35px 30px;
+    padding-left: 65px;
+    border: 4px solid #d9dace;
+    border-left: 0px;
+    border-top: 0px;
     border-radius: 10px;
-    background-color: #f0f0f0;
+    box-shadow: 3px 3px 8px #616161;
+    background-image: linear-gradient(to left, #e9ecef 83%, #972929 83%);
+    /* background-color: #e9ecef; */
     position: relative;
     height: 199px;
 }
 .cardRemoveButton {
     position: absolute;
-    left: 84%;
-    top: 5px;
+    left: 88%;
+    /* left: 4.5%; */
+    top: 5%;
     color: gray;
+    opacity: 70%;
 }
 .cardContent {
     font-size: 1rem;
@@ -27,7 +50,7 @@ div#board {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    row-gap: 16px;
+    row-gap: 20px;
 }
 .bookTitle {
     font-weight: bold;
@@ -46,7 +69,7 @@ div#board {
     font-weight: bold;
 }
 .status-read {
-    color: green;
+    color: #01b401;
     font-weight: bold;
 }
 .addCard {
@@ -60,4 +83,56 @@ div#board {
 }
 .bookCard:last-child {
     width: 153px;
+}
+.readStatus {
+    position: absolute;
+    left: 2.5%;
+    top: 5px;
+    color: #01b401;
+    background-color: #d9dace;
+    width: 34px;
+    height: 42px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.unreadStatus {
+    position: absolute;
+    left: 2.5%;
+    top: 5px;
+    color: red;
+    background-color: #d9dace;
+    width: 34px;
+    height: 42px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+/**/
+div#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px max(20px, 4%);
+    padding-right: 4%;
+    background-color: #ced4da;
+    box-shadow: 1px 2px 5px #bfbfbf;
+}
+div#headerLeft {
+    font-size: 43px;
+    font-weight: bold;
+}
+div#headerRight {
+    display: flex;
+    column-gap: 20px;
+    color: gray;
+    opacity: 75%;
+}
+#bookshelf {
+    padding: 0px 40px;
+    /* margin-bottom: 40px; */
+    /* height: 100%; */
 }
