@@ -38,9 +38,9 @@ body {
 }
 .cardRemoveButton {
     position: absolute;
-    left: 88%;
+    left: 89%;
     /* left: 4.5%; */
-    top: 5%;
+    top: 4%;
     color: gray;
     opacity: 70%;
 }
