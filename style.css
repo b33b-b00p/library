@@ -91,7 +91,7 @@ body {
 */
 .readStatus {
     position: absolute;
-    left: 2.5%;
+    left: 8px;
     top: 5px;
     color: #01b401;
     background-color: #d9dace;
@@ -104,7 +104,7 @@ body {
 }
 .unreadStatus {
     position: absolute;
-    left: 2.5%;
+    left: 8px;
     top: 5px;
     color: red;
     background-color: #d9dace;
