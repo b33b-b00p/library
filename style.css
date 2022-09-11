@@ -38,8 +38,8 @@ body {
 }
 .removeButton {
     position: absolute;
-    left: 89%;
-    /* left: 4.5%; */
+    /*left: 89%;*/
+    right: 8px;
     top: 4%;
     color: gray;
     opacity: 70%;
@@ -193,7 +193,8 @@ input#bookStatus {
 }
 #closeFormButton{
     position: absolute;
-    left: 91.5%;
+    /*left: 91.5%;*/
+    right: 17px;
     top: 3%;
     color: gray;
     opacity: 70%;
