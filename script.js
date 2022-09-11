@@ -91,7 +91,7 @@ function addVisualBook(title, author, pages, status)
     div_Author.textContent = 'Author: ' + author;
     div_Pages.textContent = 'Pages: ' + pages;
     //*******unread/read status class*******
-    toggleBigLetterStatus(status, divclass_bigLeftLetter, div_Status, author);
+    toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status);
     checkStatus(status, divclass_bigLeftLetter, div_Status);
 }
 
@@ -117,11 +117,13 @@ function checkStatus(status, div_bigLetter, div_status)
     
 }
 
-function toggleBigLetterStatus(bookStatus, div_bigLetter, div_status, bookAuthor)
+function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div_bigLetter, div_status)
 {
     div_bigLetter.addEventListener('click', () => 
     {   
-        let reqBook = myLibrary.find(Book => Book.author === bookAuthor);
+        let reqBook = myLibrary.find(Book => Book.title === bookTitle 
+            && Book.author === bookAuthor && Book.pages === bookPages 
+            && Book.status === bookStatus);
 
         if(bookStatus === true)
         {
@@ -135,8 +137,10 @@ function toggleBigLetterStatus(bookStatus, div_bigLetter, div_status, bookAuthor
             bookStatus = true;
             reqBook.status = true;
         }
-        
+
         checkStatus(bookStatus, div_bigLetter, div_status);
+        /*console.log(myLibrary);
+        console.log(reqBook);*/
     });
 }
 
