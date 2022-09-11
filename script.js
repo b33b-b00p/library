@@ -34,12 +34,11 @@ function newBook()
         let bookStatus = document.getElementById('bookStatus').checked;
         
         let book = new Book (bookTitle, bookAuthor, bookPages, bookStatus);
-
         myLibrary.push(book);
         console.log(myLibrary);
         addVisualBook(bookTitle, bookAuthor, bookPages, bookStatus);
 
-        //post adding
+        //reset input fields post adding
         document.getElementById('bookTitle').value = '';
         document.getElementById('bookAuthor').value = '';
         document.getElementById('bookPages').value = '';
@@ -92,11 +91,13 @@ function addVisualBook(title, author, pages, status)
     div_Author.textContent = 'Author: ' + author;
     div_Pages.textContent = 'Pages: ' + pages;
     //*******unread/read status class*******
+    toggleBigLetterStatus(status, divclass_bigLeftLetter, div_Status, author);
     checkStatus(status, divclass_bigLeftLetter, div_Status);
 }
 
 function checkStatus(status, div_bigLetter, div_status)
 {
+    
     if(status === true)
     {
         //for top-left letter R/U
@@ -113,6 +114,30 @@ function checkStatus(status, div_bigLetter, div_status)
         //for content
         div_status.innerHTML = 'Status: <span class="status-unread">'+'Unread'+'</span>';
     }
+    
+}
+
+function toggleBigLetterStatus(bookStatus, div_bigLetter, div_status, bookAuthor)
+{
+    div_bigLetter.addEventListener('click', () => 
+    {   
+        let reqBook = myLibrary.find(Book => Book.author === bookAuthor);
+
+        if(bookStatus === true)
+        {
+            div_bigLetter.classList.remove('readStatus');
+            bookStatus = false;
+            reqBook.status = false;
+        }
+        else
+        {
+            div_bigLetter.classList.remove('unreadStatus');
+            bookStatus = true;
+            reqBook.status = true;
+        }
+        
+        checkStatus(bookStatus, div_bigLetter, div_status);
+    });
 }
 
 
