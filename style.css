@@ -23,7 +23,7 @@ body {
 }
 .bookCard {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     padding: 35px 30px;
     padding-left: 65px;
     border: 4px solid #d9dace;
@@ -83,7 +83,7 @@ body {
     color: gray;
 }
 .bookCard:last-child {
-    width: 153px;
+    /*width: 153px;*/
 }
 .readStatus {
     position: absolute;
