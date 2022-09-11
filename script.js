@@ -93,6 +93,7 @@ function addVisualBook(title, author, pages, status)
     //*******unread/read status class*******
     toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status);
     checkStatus(status, divclass_bigLeftLetter, div_Status);
+    removeBook(title, author, pages, status, divclass_removeButton, divclass_bookCard);
 }
 
 function checkStatus(status, div_bigLetter, div_status)
@@ -141,6 +142,22 @@ function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div
         checkStatus(bookStatus, div_bigLetter, div_status);
         /*console.log(myLibrary);
         console.log(reqBook);*/
+    });
+}
+
+function removeBook(bookTitle, bookAuthor, bookPages, bookStatus, removeButton, div_bookCard)
+{
+    removeButton.addEventListener('click', () => 
+    {
+        let reqBookIndex = myLibrary.findIndex(Book => Book.title === bookTitle 
+            && Book.author === bookAuthor && Book.pages === bookPages 
+            && Book.status === bookStatus);
+        //removes from array
+        myLibrary.splice(reqBookIndex, 1);
+        /*console.log(myLibrary);*/
+        
+        //removes from the page
+        shelf.removeChild(div_bookCard);
     });
 }
 
