@@ -35,6 +35,7 @@ body {
     /* background-color: #e9ecef; */
     position: relative;
     height: 290px;
+    width: min(100%, 200px);
 }
 .removeButton {
     position: absolute;
@@ -60,6 +61,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    text-align: center;
 }
 .content {
     line-height: 1.8;
@@ -82,9 +84,11 @@ body {
     opacity: 70%;
     color: gray;
 }
-.bookCard:last-child {
-    /*width: 153px;*/
+/*
+.bookCard:last-child { /*maybe get rid of it?
+    /*width: 153px;
 }
+*/
 .readStatus {
     position: absolute;
     left: 2.5%;
