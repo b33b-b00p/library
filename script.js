@@ -190,6 +190,12 @@ const closeHelpCardButton = document.querySelector('#closeHelpCard');
 
 
 let myLibrary = [];
+let book1 = new Book ('The Hobbit', 'J. R. R. Tolkien', '239', true);
+myLibrary.push(book1);
+addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
+let book2 = new Book ('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
+myLibrary.push(book2);
+addVisualBook('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
 // *******execution*******
 hideHelpCard();
 showHelpCard();
