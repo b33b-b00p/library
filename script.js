@@ -4,8 +4,8 @@ function showAddNewBookForm()
     {
         button.addEventListener('click', () => 
         {
-        addBookBg.style.display = 'flex';
-        })
+            addBookBg.style.display = 'flex';
+        });
     });
 }
 
@@ -14,6 +14,22 @@ function hideAddNewBookForm(button)
     button.addEventListener('click', () => 
     {
         addBookBg.style.display = 'none';
+    });
+}
+
+function showHelpCard()
+{
+    helpButton.addEventListener('click', () => 
+    {
+        helpPopupBg.style.display = 'flex';
+    });
+}
+
+function hideHelpCard()
+{
+    closeHelpCardButton.addEventListener('click', () => 
+    {
+        helpPopupBg.style.display = 'none';
     });
 }
 
@@ -168,11 +184,15 @@ const addBookBg = document.querySelector('#addBookBg');
 const confirmButton = document.querySelector('#confirmButton');
 const addCardButton = document.querySelectorAll('.addCard');
 const shelf = document.querySelector('#shelf');
+const helpButton = document.querySelector('#helpButton');
+const helpPopupBg = document.querySelector('#helpPopupBg');
+const closeHelpCardButton = document.querySelector('#closeHelpCard');
 
 
 let myLibrary = [];
 // *******execution*******
-
+hideHelpCard();
+showHelpCard();
 hideAddNewBookForm(closeFormButton);
 hideAddNewBookForm(confirmButton);
 showAddNewBookForm();

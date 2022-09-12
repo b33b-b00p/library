@@ -80,7 +80,7 @@ body {
     justify-content: center;
 }
 .addCard svg,
-.questionButton svg {
+#helpButton svg {
     opacity: 70%;
     color: gray;
 }
@@ -196,6 +196,58 @@ input#bookStatus {
     margin-top: 10px;
 }
 #closeFormButton{
+    position: absolute;
+    /*left: 91.5%;*/
+    right: 17px;
+    top: 3%;
+    color: gray;
+    opacity: 70%;
+}
+/**/
+#helpPopupBg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 30%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#helpPopupCard {
+    background-color: #ebeef2;
+    width: 600px;
+    height: 400px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    position: relative;
+}
+.helpCardHeader {
+    /* margin-top: 25px; */
+    margin-bottom: 10px;
+    font-size: 1.7em;
+}
+.helpCardContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    font-size: 1.3em;
+}
+.helpCardBigLetter {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.helpCardAddBookIcon,
+.helpCardRemoveIcon {
+    color: #464545;
+    opacity: 75%;
+}
+#closeHelpCard{
     position: absolute;
     /*left: 91.5%;*/
     right: 17px;
