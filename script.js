@@ -41,14 +41,19 @@ function Book(title, author, pages, status)
     this.status = status
 }
 
+Book.prototype.showIndex = function()
+{
+    return this.index;
+}
+
 function newBook()
 {
-    confirmButton.addEventListener('click', () => {
+    confirmButton.addEventListener('click', () => 
+    {
         let bookTitle = document.getElementById('bookTitle').value;
         let bookAuthor = document.getElementById('bookAuthor').value;
         let bookPages = document.getElementById('bookPages').value; //maybe change html to number 
         let bookStatus = document.getElementById('bookStatus').checked;
-        
         let book = new Book (bookTitle, bookAuthor, bookPages, bookStatus);
         myLibrary.push(book);
         console.log(myLibrary);
@@ -61,6 +66,18 @@ function newBook()
         document.getElementById('bookStatus').checked = true;
     });
     
+}
+
+function updateBookIndex()
+{
+    let i = 0;
+    myLibrary.forEach(book => 
+    {
+        book.index = i;
+        i++;
+    });
+    console.log('new lib');
+    console.log(myLibrary);
 }
 
 function addVisualBook(title, author, pages, status)
@@ -106,10 +123,18 @@ function addVisualBook(title, author, pages, status)
     divclass_bookTitle.textContent = '\"' + title + '\"';
     div_Author.textContent = 'Author: ' + author;
     div_Pages.textContent = 'Pages: ' + pages;
-    //*******unread/read status class*******
-    toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status);
+
+    //*******linked functions*******
+    let thisBook = myLibrary.find(Book => Book.title === title 
+        && Book.author === author && Book.pages === pages 
+        && Book.status === status);
+
     checkStatus(status, divclass_bigLeftLetter, div_Status);
-    removeBook(title, author, pages, status, divclass_removeButton, divclass_bookCard);
+    updateBookIndex();
+    console.log(myLibrary);
+    //console.log(indexLib);
+    removeBook(thisBook, divclass_removeButton, divclass_bookCard);
+    toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status);
 }
 
 function checkStatus(status, div_bigLetter, div_status)
@@ -156,24 +181,24 @@ function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div
         }
 
         checkStatus(bookStatus, div_bigLetter, div_status);
-        /*console.log(myLibrary);
-        console.log(reqBook);*/
+        updateBookIndex();
+        console.log(myLibrary);
+        /*console.log(reqBook);*/
     });
 }
 
-function removeBook(bookTitle, bookAuthor, bookPages, bookStatus, removeButton, div_bookCard)
+function removeBook(reqBook, removeButton, div_bookCard)
 {
     removeButton.addEventListener('click', () => 
     {
-        let reqBookIndex = myLibrary.findIndex(Book => Book.title === bookTitle 
-            && Book.author === bookAuthor && Book.pages === bookPages 
-            && Book.status === bookStatus);
-        //removes from array
-        myLibrary.splice(reqBookIndex, 1);
-        /*console.log(myLibrary);*/
-        
+       let findBook = reqBook.index;
+
+        console.log(findBook);
+        myLibrary.splice(findBook, 1);
         //removes from the page
+        removeButton = div_bookCard.querySelector('.removeButton');
         shelf.removeChild(div_bookCard);
+        updateBookIndex();
     });
 }
 
@@ -188,8 +213,9 @@ const helpButton = document.querySelector('#helpButton');
 const helpPopupBg = document.querySelector('#helpPopupBg');
 const closeHelpCardButton = document.querySelector('#closeHelpCard');
 
-
+let removeButtons = document.querySelectorAll('.removeButton');
 let myLibrary = [];
+let indexLib = [];
 let book1 = new Book ('The Hobbit', 'J. R. R. Tolkien', '239', true);
 myLibrary.push(book1);
 addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
@@ -203,3 +229,5 @@ hideAddNewBookForm(closeFormButton);
 hideAddNewBookForm(confirmButton);
 showAddNewBookForm();
 newBook();
+updateBookIndex();
+console.log(myLibrary);
