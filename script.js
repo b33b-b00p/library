@@ -202,6 +202,26 @@ function removeBook(reqBook, removeButton, div_bookCard)
     });
 }
 
+function scrollToTop()
+{
+    scrollUpArrow.addEventListener('click', () =>
+    {
+        window.scrollTo({
+            top: 0,
+            left: 0, 
+            behavior: "smooth"
+        });
+    });
+}
+
+function displayUpArrowButton() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrollUpArrow.style.display = "block";
+    } else {
+      scrollUpArrow.style.display = "none";
+    }
+  }
+
 
 // *******variables*******
 const closeFormButton = document.querySelector('#closeFormButton');
@@ -212,6 +232,7 @@ const shelf = document.querySelector('#shelf');
 const helpButton = document.querySelector('#helpButton');
 const helpPopupBg = document.querySelector('#helpPopupBg');
 const closeHelpCardButton = document.querySelector('#closeHelpCard');
+const scrollUpArrow = document.querySelector('#scrollUpArrow');
 
 let removeButtons = document.querySelectorAll('.removeButton');
 let myLibrary = [];
@@ -222,6 +243,8 @@ addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
 let book2 = new Book ('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
 myLibrary.push(book2);
 addVisualBook('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
+
+
 // *******execution*******
 hideHelpCard();
 showHelpCard();
@@ -230,4 +253,6 @@ hideAddNewBookForm(confirmButton);
 showAddNewBookForm();
 newBook();
 updateBookIndex();
+scrollToTop();
+window.onscroll = function() {displayUpArrowButton()};
 console.log(myLibrary);

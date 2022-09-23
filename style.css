@@ -265,6 +265,21 @@ input#bookStatus {
 }
 
 /*mobile*/
+#scrollUpArrow {
+    position: fixed;
+    bottom: 1%;
+    right: 3%;
+    background: #afb3b9;
+    background: black;
+    color: #ced4da;
+    /* color: white; */
+    padding: 2% 2.1%;
+    padding-top: 2.1%;
+    border-radius: 50%;
+    border: 1px solid #ced4da;
+    border: 1px solid black;
+    display: none;
+}
 @media /*(max-width:1px)*/(max-width:1212px)  and (min-width: 820px){ 
 
     #shelf {
