@@ -178,6 +178,10 @@ body {
     padding: 7px 14px;
     font-size: 1.2em;
 }
+#addBookForm input[type="number"] {
+    padding: 7px 14px;
+    font-size: 1.2em;
+}
 .checkboxButtons {
     display: flex;
     margin: 0 auto;
@@ -443,6 +447,10 @@ input#bookStatus {
         font-weight: bold;
     }
     #addBookForm input[type="text"] {
+        padding: 2px 7px;
+        font-size: 1.1em;
+    }
+    #addBookForm input[type="number"] {
         padding: 2px 7px;
         font-size: 1.1em;
     }
