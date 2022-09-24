@@ -52,7 +52,7 @@ function newBook()
     {
         let bookTitle = document.getElementById('bookTitle').value;
         let bookAuthor = document.getElementById('bookAuthor').value;
-        let bookPages = document.getElementById('bookPages').value; //maybe change html to number 
+        let bookPages = document.getElementById('bookPages').value; 
         let bookStatus = document.getElementById('bookStatus').checked;
         let book = new Book (bookTitle, bookAuthor, bookPages, bookStatus);
         myLibrary.push(book);
@@ -183,7 +183,7 @@ function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div
         checkStatus(bookStatus, div_bigLetter, div_status);
         updateBookIndex();
         console.log(myLibrary);
-        /*console.log(reqBook);*/
+        //console.log(reqBook);
     });
 }
 

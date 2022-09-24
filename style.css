@@ -32,16 +32,12 @@ body {
     border-radius: 10px;
     box-shadow: 3px 3px 8px #616161;
     background-image: linear-gradient(to left, #e9ecef 83%, #972929 83%);
-    /* background-color: #e9ecef; */
     position: relative;
     height: 290px;
     width: min(100%, 200px);
-    /*height: 18em;
-    width: 21vw;*/
 }
 .removeButton {
     position: absolute;
-    /*left: 89%;*/
     right: 8px;
     top: 4%;
     color: gray;
@@ -86,11 +82,6 @@ body {
     opacity: 70%;
     color: gray;
 }
-/*
-.bookCard:last-child { /*maybe get rid of it?
-    /*width: 153px;
-}
-*/
 .readStatus {
     position: absolute;
     left: 8px;
@@ -136,12 +127,9 @@ body {
     display: flex;
     column-gap: 20px;
     color: gray;
-   /*opacity: 75%;*/
 }
 #bookshelf {
     padding: 0px 40px;
-    /* margin-bottom: 40px; */
-    /* height: 100%; */
 }
 /**/
 #addBookBg {
@@ -156,9 +144,7 @@ body {
 }
 #addBookForm {
     background-color: #ebeef2;
-    /*width: 600px; */
     width: 38em;
-    /* height: 400px; */
     height: 25em;
     border-radius: 15px;
     display: flex;
@@ -169,7 +155,6 @@ body {
     position: relative;
 }
 .formHeader {
-    /* margin-top: 25px; */
     margin-bottom: 10px;
     font-size: 1.7em;
     font-weight: bold;
@@ -206,7 +191,6 @@ input#bookStatus {
 }
 #closeFormButton{
     position: absolute;
-    /*left: 91.5%;*/
     right: 17px;
     top: 3%;
     color: gray;
@@ -225,9 +209,7 @@ input#bookStatus {
 }
 #helpPopupCard {
     background-color: #ebeef2;
-    /*width: 600px; */
     width: 38em;
-    /* height: 400px; */
     height: 25em;
     border-radius: 15px;
     display: flex;
@@ -238,7 +220,6 @@ input#bookStatus {
     position: relative;
 }
 .helpCardHeader {
-    /* margin-top: 25px; */
     margin-bottom: 10px;
     font-size: 1.7em;
     font-weight: bold;
@@ -261,7 +242,6 @@ input#bookStatus {
 }
 #closeHelpCard{
     position: absolute;
-    /*left: 91.5%;*/
     right: 17px;
     top: 3%;
     color: gray;
@@ -276,7 +256,6 @@ input#bookStatus {
     background: #afb3b9;
     background: black;
     color: #ced4da;
-    /* color: white; */
     padding: 2% 2.1%;
     padding-top: 2.1%;
     border-radius: 50%;
@@ -284,66 +263,31 @@ input#bookStatus {
     border: 1px solid black;
     display: none;
 }
-@media /*(max-width:1px)*/(max-width:1212px)  and (min-width: 820px){ 
+@media (max-width:1212px)  and (min-width: 820px){ 
 
     #shelf {
         display: grid;
         grid-template-columns: repeat(2, minmax(190px, 1fr));
         padding: 40px 20px;
-        /* align-items: center; */
-        /* justify-content: center; */
-        /* display: flex; */
-        /* flex-direction: row; */
-        /* flex-wrap: wrap; */
     }
     .bookCard {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-        padding: 35px 30px;
-        padding-left: 65px;
-        border: 4px solid #d9dace;
-        border-left: 0px;
-        border-top: 0px;
-        border-radius: 10px;
-        box-shadow: 3px 3px 8px #616161;
-        background-image: linear-gradient(to left, #e9ecef 83%, #972929 83%);
-        /* background-color: #e9ecef; */
-        position: relative;
-        height: 290px;
-        width: min(100%, 200px);
         height: max(290px, 19em);
         width: max(15em, 200px);
         margin: 0 auto;
     }
     .readStatus {
-        position: absolute;
-        left: 8px;
-        top: 5px;
-        color: #01b401;
-        background-color: #d9dace;
-        /*width: 34px;*/
         width: 1.2em;
-        /*height: 42px;*/
         height: 1.2em;
         border-radius: 10px;
         text-align: center;
-        /*font-size: 35px;*/
         font-size: 2.2em;
         font-weight: bold;
     }
     .unreadStatus {
-        position: absolute;
-        left: 8px;
-        top: 5px;
-        color: red;
-        background-color: #d9dace;
-        /*width: 34px;*/
         width: 1.2em;
-        /*height: 42px;*/
         height: 1.2em;
         border-radius: 10px;
         text-align: center;
-        /*font-size: 35px;*/
         font-size: 2.2em;
         font-weight: bold;
     }
@@ -353,14 +297,12 @@ input#bookStatus {
         flex-direction: column;
         justify-content: center;
         margin-left: 35px;
-        /* align-items: flex-start; */
         row-gap: 20px;
-        /* position: absolute; */
     }
 }
-@media /*(max-width: 500px),*/ (max-width: 819px) {
+@media (max-width: 819px) {
 
-    #bookshelf{
+    #bookshelf {
         padding: 0;
     }
     #shelf {
@@ -369,82 +311,27 @@ input#bookStatus {
         align-items: center;
         gap: 13px;
         padding: 15px 10px;
-        border-radius: 12px;
-        height: 100%;
-        margin-bottom: 30px;
-        /* margin: 0 10px; */
-    }
-    .bookCard {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-        padding: 35px 30px;
-        padding-left: 65px;
-        border: 4px solid #d9dace;
-        border-left: 0px;
-        border-top: 0px;
-        border-radius: 10px;
-        box-shadow: 3px 3px 8px #616161;
-        background-image: linear-gradient(to left, #e9ecef 83%, #972929 83%);
-        /* background-color: #e9ecef; */
-        position: relative;
-        height: 290px;
-        width: min(100%, 200px);
     }
     #addBookForm {
-        background-color: #ebeef2;
         width: 31em;
-        height: 25em;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        row-gap: 20px;
-        position: relative;
     }
     #helpPopupCard {
-        background-color: #ebeef2;
         width: 31em;
         height: 25em;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        row-gap: 15px;
-        position: relative;
     }
 }
 @media (orientation: landscape) and (max-width: 819px) {
     #helpPopupCard {
-        background-color: #ebeef2;
         width: 31em;
         height: 19em;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        row-gap: 15px;
-        position: relative;
     }
     #addBookForm {
-        background-color: #ebeef2;
         width: 31em;
         height: 19em;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         row-gap: 10px;
-        position: relative;
     }
     .formHeader {
-        /* margin-top: 25px; */
-        margin-bottom: 10px;
         font-size: 1.4em;
-        font-weight: bold;
     }
     #addBookForm input[type="text"] {
         padding: 2px 7px;
@@ -455,29 +342,11 @@ input#bookStatus {
         font-size: 1.1em;
     }
     .checkboxButtons {
-        display: flex;
-        margin: 0 auto;
-        margin-left: 29%;
         font-size: 1.1em;
-        column-gap: 5px;
     }
     #addBookForm button {
-        width: auto;
         padding: 12px 18px;
         font-size: 1.1em;
-        border-radius: 26px;
-        border: 0;
-        background-color: #ced4da;
-        box-shadow: 0px 0px 3px black;
-        color: rgba(0, 0, 0, 70%);
         margin-top: 1px;
-    }
-    #closeFormButton {
-        position: absolute;
-        /* left: 91.5%; */
-        right: 17px;
-        top: 3%;
-        color: gray;
-        opacity: 70%;
     }
 }
