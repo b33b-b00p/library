@@ -256,10 +256,9 @@ input#bookStatus {
     background: #afb3b9;
     background: black;
     color: #ced4da;
-    padding: 2% 2.1%;
-    padding-top: 2.1%;
+    padding: min(20px, 2%) min(25px, 2.1%);
+    padding-top: min(25px, 2.1%);
     border-radius: 50%;
-    border: 1px solid #ced4da;
     border: 1px solid black;
     display: none;
 }
