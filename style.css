@@ -78,8 +78,12 @@ body {
     justify-content: center;
 }
 .addCard svg,
-#helpButton svg {
+#helpButton svg{
     opacity: 70%;
+    color: gray;
+}
+#langButton svg {
+    opacity: 80%;
     color: gray;
 }
 .readStatus {
