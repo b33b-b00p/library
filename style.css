@@ -251,6 +251,46 @@ input#bookStatus {
     color: gray;
     opacity: 70%;
 }
+/**/
+.lang-menu {
+    /* margin-top: 25px; */
+    position: relative;
+}
+.lang-menu ul {
+    margin: 0;
+    padding: 0;
+    background-color: #ebeef2;
+    border: 1px solid #ced4da; 
+    box-shadow: 1px 2px 5px #bfbfbf; 
+    border-radius: 5px;
+    display: none;
+    position: absolute; /*?????????*/
+    top: 38px;
+    left: -58px;
+}
+.lang-menu ul li{
+    list-style: none;
+}
+.lang-menu ul li a{
+    color: black;
+    width: 125px; /*change*/
+    display: block; 
+    padding: 5px 10px; /*change*/
+    text-decoration: none;
+    padding: 12px; /*change*/
+    font-weight: 650; 
+    transition: .3s linear; 
+    border-radius: 10%; /*change*/
+}
+.lang-menu ul li a:hover{
+    background-color: #ced4da;
+}
+a.active{
+    background: rgba(128, 128, 128, 0.45); 
+}
+.lang-menu:hover  ul {
+    display: block;
+}
 
 /*mobile*/
 #scrollUpArrow {
