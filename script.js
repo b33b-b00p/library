@@ -222,6 +222,55 @@ function displayUpArrowButton() {
     }
   }
 
+// *******languages*******
+let langs = document.querySelector(".lang-menu"),
+    link = document.querySelectorAll("a");
+
+let helpCardHeader = document.querySelector(".helpCardHeader"),
+    firstWord1 = document.querySelector("#firstWord1"),
+    firstWord2 = document.querySelector("#firstWord2"),
+    firstWord3 = document.querySelector("#firstWord3"),
+    tipDescription1 = document.querySelector("#tipDescription1"),
+    tipDescription2 = document.querySelector("#tipDescription2"),
+    tipDescription3 = document.querySelector("#tipDescription3");
+
+link.forEach(el=>{
+    el.addEventListener("click", ()=>{
+        langs.querySelector(".active").classList.remove("active");
+        el.classList.add("active");
+
+        let attr = el.getAttribute("language")
+
+        helpCardHeader.textContent = data[attr].helpCardHeader
+        firstWord1.textContent = data[attr].firstWord1
+        tipDescription1.textContent = data[attr].tipDescription1
+        firstWord2.textContent = data[attr].firstWord2
+        tipDescription2.textContent = data[attr].tipDescription2
+        firstWord3.textContent = data[attr].firstWord3
+        tipDescription3.textContent = data[attr].tipDescription3
+    })
+})
+
+let data = {
+    english: {
+        helpCardHeader: "Functionality",
+        firstWord1: "Press",
+        tipDescription1: "to add book to your shelf",
+        firstWord2: "Toggle",
+        tipDescription2: "to change book status",
+        firstWord3: "Press",
+        tipDescription3: "to remove book form your shelf"
+    },
+    russian: {
+        helpCardHeader: "Функционал",
+        firstWord1: "Нажмите",
+        tipDescription1: ", чтобы добавить книгу на полку",
+        firstWord2: "Нажмите",
+        tipDescription2: ", чтобы изменить статус книги",
+        firstWord3: "Нажмите",
+        tipDescription3: ", чтобы убрать книгу с полки"
+     }
+}
 
 // *******variables*******
 const closeFormButton = document.querySelector('#closeFormButton');
