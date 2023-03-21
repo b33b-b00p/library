@@ -226,6 +226,13 @@ function displayUpArrowButton() {
 let langs = document.querySelector(".lang-menu"),
     link = document.querySelectorAll("a");
 
+let formHeader = document.querySelector(".formHeader"),
+    bookTitlePlaceholder = document.querySelector("#bookTitle"),
+    bookAuthorPlaceholder = document.querySelector("#bookAuthor"),
+    bookPagesPlaceholder = document.querySelector("#bookPages"),
+    checkboxLabelText = document.querySelector("#checkboxLabelText"),
+    confirmButtonTextTranslation = document.querySelector("#confirmButton");
+
 let helpCardHeader = document.querySelector(".helpCardHeader"),
     firstWord1 = document.querySelector("#firstWord1"),
     firstWord2 = document.querySelector("#firstWord2"),
@@ -241,6 +248,13 @@ link.forEach(el=>{
 
         let attr = el.getAttribute("language")
 
+        formHeader.textContent = data[attr].formHeader
+        bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
+        bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
+        bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
+        checkboxLabelText.textContent = data[attr].checkboxLabelText
+        confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
+
         helpCardHeader.textContent = data[attr].helpCardHeader
         firstWord1.textContent = data[attr].firstWord1
         tipDescription1.textContent = data[attr].tipDescription1
@@ -253,6 +267,14 @@ link.forEach(el=>{
 
 let data = {
     english: {
+        // addBookForm
+        formHeader: "Add new book",
+        bookTitlePlaceholder: "Title",
+        bookAuthorPlaceholder: "Author",
+        bookPagesPlaceholder: "Pages",
+        checkboxLabelText: "Read before",
+        confirmButtonTextTranslation: "Confirm",
+        // helpCard
         helpCardHeader: "Functionality",
         firstWord1: "Press",
         tipDescription1: "to add book to your shelf",
@@ -262,6 +284,14 @@ let data = {
         tipDescription3: "to remove book form your shelf"
     },
     russian: {
+        // addBookForm
+        formHeader: "Добавить книгу",
+        bookTitlePlaceholder: "Название",
+        bookAuthorPlaceholder: "Автор",
+        bookPagesPlaceholder: "Количество страниц",
+        checkboxLabelText: "Прочитано",
+        confirmButtonTextTranslation: "Готово",
+        // helpCard
         helpCardHeader: "Функционал",
         firstWord1: "Нажмите",
         tipDescription1: ", чтобы добавить книгу на полку",
