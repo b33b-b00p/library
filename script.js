@@ -129,15 +129,15 @@ function addVisualBook(title, author, pages, status)
         && Book.author === author && Book.pages === pages 
         && Book.status === status);
 
-    checkStatus(status, divclass_bigLeftLetter, div_Status);
+    checkStatus(status, divclass_bigLeftLetter, div_Status, div_Author, div_Pages, author, pages);
     updateBookIndex();
     console.log(myLibrary);
     //console.log(indexLib);
     removeBook(thisBook, divclass_removeButton, divclass_bookCard);
-    toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status);
+    toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status, div_Author, div_Pages);
 }
 
-function checkStatus(status, div_bigLetter, div_status)
+function checkStatus(status, div_bigLetter, div_status, div_author, div_pages, author, pages)
 {
     
     if(status === true)
@@ -146,6 +146,8 @@ function checkStatus(status, div_bigLetter, div_status)
         div_bigLetter.classList.add('readStatus');
         div_bigLetter.textContent = 'R';
         //for content
+        div_author.textContent = authorText + author;
+        div_pages.textContent = pagesText + pages;
         div_status.innerHTML = statusText + '<span class="status-read">'+statusReadText+'</span>';
     }
     else
@@ -154,12 +156,14 @@ function checkStatus(status, div_bigLetter, div_status)
         div_bigLetter.classList.add('unreadStatus');
         div_bigLetter.textContent = 'U';
         //for content
+        div_author.textContent = authorText + author;
+        div_pages.textContent = pagesText + pages;
         div_status.innerHTML = statusText + '<span class="status-unread">'+statusUnreadText+'</span>';
     }
     
 }
 
-function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div_bigLetter, div_status)
+function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div_bigLetter, div_status, div_author, div_pages)
 {
     div_bigLetter.addEventListener('click', () => 
     {   
@@ -180,7 +184,7 @@ function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div
             reqBook.status = true;
         }
 
-        checkStatus(bookStatus, div_bigLetter, div_status);
+        checkStatus(bookStatus, div_bigLetter, div_status, div_author, div_pages, bookAuthor, bookPages);
         updateBookIndex();
         console.log(myLibrary);
         //console.log(reqBook);
