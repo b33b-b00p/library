@@ -121,8 +121,8 @@ function addVisualBook(title, author, pages, status)
     path.setAttribute('d', 'M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z');
     
     divclass_bookTitle.textContent = '\"' + title + '\"';
-    div_Author.textContent = 'Author: ' + author;
-    div_Pages.textContent = 'Pages: ' + pages;
+    div_Author.textContent = authorText + author;
+    div_Pages.textContent = pagesText + pages;
 
     //*******linked functions*******
     let thisBook = myLibrary.find(Book => Book.title === title 
@@ -146,7 +146,7 @@ function checkStatus(status, div_bigLetter, div_status)
         div_bigLetter.classList.add('readStatus');
         div_bigLetter.textContent = 'R';
         //for content
-        div_status.innerHTML = 'Status: <span class="status-read">'+'Read'+'</span>';
+        div_status.innerHTML = statusText + '<span class="status-read">'+statusReadText+'</span>';
     }
     else
     {
@@ -154,7 +154,7 @@ function checkStatus(status, div_bigLetter, div_status)
         div_bigLetter.classList.add('unreadStatus');
         div_bigLetter.textContent = 'U';
         //for content
-        div_status.innerHTML = 'Status: <span class="status-unread">'+'Unread'+'</span>';
+        div_status.innerHTML = statusText + '<span class="status-unread">'+statusUnreadText+'</span>';
     }
     
 }
@@ -226,13 +226,20 @@ function displayUpArrowButton() {
 let langs = document.querySelector(".lang-menu"),
     link = document.querySelectorAll("a");
 
+//bookCard
+let authorText = "Author: "
+    pagesText = "Pages: ",
+    statusText = "Status: ",
+    statusReadText = "Read",
+    statusUnreadText = "Unread";
+// addBookForm
 let formHeader = document.querySelector(".formHeader"),
     bookTitlePlaceholder = document.querySelector("#bookTitle"),
     bookAuthorPlaceholder = document.querySelector("#bookAuthor"),
     bookPagesPlaceholder = document.querySelector("#bookPages"),
     checkboxLabelText = document.querySelector("#checkboxLabelText"),
     confirmButtonTextTranslation = document.querySelector("#confirmButton");
-
+// helpCard
 let helpCardHeader = document.querySelector(".helpCardHeader"),
     firstWord1 = document.querySelector("#firstWord1"),
     firstWord2 = document.querySelector("#firstWord2"),
@@ -248,13 +255,20 @@ link.forEach(el=>{
 
         let attr = el.getAttribute("language")
 
+        // bookCard
+        authorText = data[attr].authorText
+        pagesText = data[attr].pagesText
+        statusText = data[attr].statusText
+        statusReadText = data[attr].statusReadText
+        statusUnreadText = data[attr].statusUnreadText
+        // addBookForm
         formHeader.textContent = data[attr].formHeader
         bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
         bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
         bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
         checkboxLabelText.textContent = data[attr].checkboxLabelText
         confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
-
+        // helpCard
         helpCardHeader.textContent = data[attr].helpCardHeader
         firstWord1.textContent = data[attr].firstWord1
         tipDescription1.textContent = data[attr].tipDescription1
@@ -267,6 +281,12 @@ link.forEach(el=>{
 
 let data = {
     english: {
+        // bookCard
+        authorText: "Author: ",
+        pagesText: "Pages: ",
+        statusText: "Status: ",
+        statusReadText: "Read", 
+        statusUnreadText: "Unread",
         // addBookForm
         formHeader: "Add new book",
         bookTitlePlaceholder: "Title",
@@ -284,6 +304,12 @@ let data = {
         tipDescription3: "to remove book form your shelf"
     },
     russian: {
+        // bookCard
+        authorText: "Автор: ",
+        pagesText: "Количество страниц: ",
+        statusText: "Статус: ",
+        statusReadText: "Прочитано", 
+        statusUnreadText: "Не прочитано",
         // addBookForm
         formHeader: "Добавить книгу",
         bookTitlePlaceholder: "Название",
