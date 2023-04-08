@@ -57,8 +57,9 @@ function newBook()
         let book = new Book (bookTitle, bookAuthor, bookPages, bookStatus);
         myLibrary.push(book);
         console.log(myLibrary);
-        addVisualBook(bookTitle, bookAuthor, bookPages, bookStatus);
-
+        localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+        addVisualBook(book); 
+        
         //reset input fields post adding
         document.getElementById('bookTitle').value = '';
         document.getElementById('bookAuthor').value = '';
@@ -76,11 +77,12 @@ function updateBookIndex()
         book.index = i;
         i++;
     });
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
     console.log('new lib');
     console.log(myLibrary);
 }
 
-function addVisualBook(title, author, pages, status)
+function addVisualBook({title, author, pages, status})
 {
     let divclass_bookCard = document.createElement('div');
     let divclass_bigLeftLetter = document.createElement('div');
@@ -186,6 +188,7 @@ function toggleBigLetterStatus(bookTitle, bookAuthor, bookPages, bookStatus, div
 
         checkStatus(bookStatus, div_bigLetter, div_status, div_author, div_pages, bookAuthor, bookPages);
         updateBookIndex();
+        localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
         console.log(myLibrary);
         //console.log(reqBook);
     });
@@ -199,6 +202,7 @@ function removeBook(reqBook, removeButton, div_bookCard)
 
         console.log(findBook);
         myLibrary.splice(findBook, 1);
+        localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
         //removes from the page
         removeButton = div_bookCard.querySelector('.removeButton');
         shelf.removeChild(div_bookCard);
@@ -344,14 +348,31 @@ const closeHelpCardButton = document.querySelector('#closeHelpCard');
 const scrollUpArrow = document.querySelector('#scrollUpArrow');
 
 let removeButtons = document.querySelectorAll('.removeButton');
-let myLibrary = [];
+let myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
+    {
+        title: 'The Hobbit',
+        author: 'J. R. R. Tolkien', 
+        pages: 239, 
+        status: true
+    },
+    {
+        title: 'The Call of Cthulh',
+        author: 'H. P. Lovecraft', 
+        pages: 40, 
+        status: false
+    }
+];
+localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+myLibrary.forEach(addVisualBook);
+// localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+
 let indexLib = [];
-let book1 = new Book ('The Hobbit', 'J. R. R. Tolkien', '239', true);
-myLibrary.push(book1);
-addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
-let book2 = new Book ('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
-myLibrary.push(book2);
-addVisualBook('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
+// let book1 = new Book ('The Hobbit', 'J. R. R. Tolkien', '239', true);
+// myLibrary.push(book1);
+// addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
+// let book2 = new Book ('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
+// myLibrary.push(book2);
+// addVisualBook('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
 
 
 // *******execution*******
