@@ -234,6 +234,8 @@ function displayUpArrowButton() {
 let langs = document.querySelector(".lang-menu"),
     link = document.querySelectorAll("a");
 
+// let attr;
+
 //bookCard
 let authorText = "Author: "
     pagesText = "Pages: ",
@@ -263,29 +265,65 @@ link.forEach(el=>{
 
         let attr = el.getAttribute("language")
 
-        // bookCard
-        authorText = data[attr].authorText
-        pagesText = data[attr].pagesText
-        statusText = data[attr].statusText
-        statusReadText = data[attr].statusReadText
-        statusUnreadText = data[attr].statusUnreadText
-        // addBookForm
-        formHeader.textContent = data[attr].formHeader
-        bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
-        bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
-        bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
-        checkboxLabelText.textContent = data[attr].checkboxLabelText
-        confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
-        // helpCard
-        helpCardHeader.textContent = data[attr].helpCardHeader
-        firstWord1.textContent = data[attr].firstWord1
-        tipDescription1.textContent = data[attr].tipDescription1
-        firstWord2.textContent = data[attr].firstWord2
-        tipDescription2.textContent = data[attr].tipDescription2
-        firstWord3.textContent = data[attr].firstWord3
-        tipDescription3.textContent = data[attr].tipDescription3
+        
+        localStorage.setItem('selectedLang', JSON.stringify(attr)); //new
+        // attr = JSON.parse(localStorage.getItem('selectedLang')); //new
+
+        // // bookCard
+        // authorText = data[attr].authorText
+        // pagesText = data[attr].pagesText
+        // statusText = data[attr].statusText
+        // statusReadText = data[attr].statusReadText
+        // statusUnreadText = data[attr].statusUnreadText
+        // // addBookForm
+        // formHeader.textContent = data[attr].formHeader
+        // bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
+        // bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
+        // bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
+        // checkboxLabelText.textContent = data[attr].checkboxLabelText
+        // confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
+        // // helpCard
+        // helpCardHeader.textContent = data[attr].helpCardHeader
+        // firstWord1.textContent = data[attr].firstWord1
+        // tipDescription1.textContent = data[attr].tipDescription1
+        // firstWord2.textContent = data[attr].firstWord2
+        // tipDescription2.textContent = data[attr].tipDescription2
+        // firstWord3.textContent = data[attr].firstWord3
+        // tipDescription3.textContent = data[attr].tipDescription3
+        // checkSelectedLang();
+        location.reload(true); //new
     })
 })
+
+function checkSelectedLang()
+{
+    let attr = JSON.parse(localStorage.getItem('selectedLang')) || "english";
+
+    langs.querySelector(".active").classList.remove("active");
+    langs.querySelector(`a[language=${attr}]`).classList.add("active");
+
+    // bookCard
+    authorText = data[attr].authorText
+    pagesText = data[attr].pagesText
+    statusText = data[attr].statusText
+    statusReadText = data[attr].statusReadText
+    statusUnreadText = data[attr].statusUnreadText
+    // addBookForm
+    formHeader.textContent = data[attr].formHeader
+    bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
+    bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
+    bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
+    checkboxLabelText.textContent = data[attr].checkboxLabelText
+    confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
+    // helpCard
+    helpCardHeader.textContent = data[attr].helpCardHeader
+    firstWord1.textContent = data[attr].firstWord1
+    tipDescription1.textContent = data[attr].tipDescription1
+    firstWord2.textContent = data[attr].firstWord2
+    tipDescription2.textContent = data[attr].tipDescription2
+    firstWord3.textContent = data[attr].firstWord3
+    tipDescription3.textContent = data[attr].tipDescription3
+}
 
 let data = {
     english: {
@@ -363,7 +401,7 @@ let myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
     }
 ];
 localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-myLibrary.forEach(addVisualBook);
+
 // localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 
 let indexLib = [];
@@ -376,6 +414,9 @@ let indexLib = [];
 
 
 // *******execution*******
+checkSelectedLang();
+myLibrary.forEach(addVisualBook);
+
 hideHelpCard();
 showHelpCard();
 hideAddNewBookForm(closeFormButton);
