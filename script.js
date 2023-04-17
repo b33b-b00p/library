@@ -260,7 +260,13 @@ let helpCardHeader = document.querySelector(".helpCardHeader"),
     tipDescription1 = document.querySelector("#tipDescription1"),
     tipDescription2 = document.querySelector("#tipDescription2"),
     tipDescription3 = document.querySelector("#tipDescription3");
-
+//searchbar
+let sortOptionButtonTitleText = "Title",
+    sortOptionButtonAuthorText = "Author",
+    sortOptionButtonPagesText = "Pages",
+    sortOptionButtonStatusText = "Status";
+let searchFieldPlaceholder = document.querySelector("#search-item");
+    
 link.forEach(el=>{
     el.addEventListener("click", ()=>{
         langs.querySelector(".active").classList.remove("active");
@@ -326,6 +332,13 @@ function checkSelectedLang()
     tipDescription2.textContent = data[attr].tipDescription2
     firstWord3.textContent = data[attr].firstWord3
     tipDescription3.textContent = data[attr].tipDescription3
+    //searchbar
+    sortOptionButton.textContent = data[attr].sortOptionButtonTitleText //displaying "Title" as a default sort option
+    sortOptionButtonTitleText = data[attr].sortOptionButtonTitleText
+    sortOptionButtonAuthorText = data[attr].sortOptionButtonAuthorText
+    sortOptionButtonPagesText = data[attr].sortOptionButtonPagesText
+    sortOptionButtonStatusText = data[attr].sortOptionButtonStatusText
+    searchFieldPlaceholder.setAttribute("placeholder", data[attr].searchFieldPlaceholder)
 }
 
 let data = {
@@ -350,7 +363,15 @@ let data = {
         firstWord2: "Toggle",
         tipDescription2: "to change book status",
         firstWord3: "Press",
-        tipDescription3: "to remove book form your shelf"
+        tipDescription3: "to remove book form your shelf",
+        //searchbar
+        searchFieldPlaceholder: "Search book",
+        sortOptionButtonTitleText: "Title",
+        sortOptionButtonAuthorText: "Author",
+        sortOptionButtonPagesText: "Pages",
+        sortOptionButtonStatusText: "Status"
+
+
     },
     russian: {
         // bookCard
@@ -373,7 +394,13 @@ let data = {
         firstWord2: "Нажмите",
         tipDescription2: ", чтобы изменить статус книги",
         firstWord3: "Нажмите",
-        tipDescription3: ", чтобы убрать книгу с полки"
+        tipDescription3: ", чтобы убрать книгу с полки",
+        //searchbar
+        searchFieldPlaceholder: "Поиск книги",
+        sortOptionButtonTitleText: "Название",
+        sortOptionButtonAuthorText: "Автор",
+        sortOptionButtonPagesText: "Страницы",
+        sortOptionButtonStatusText: "Статус"
      }
 }
 
@@ -388,25 +415,25 @@ function chooseSortOption()
     sortOptionButton.addEventListener("click", () => {
         if(nextSort === "Title")
         {
-            sortOptionButton.textContent = nextSort;
+            sortOptionButton.textContent = sortOptionButtonTitleText;
             currentSort = nextSort;
             nextSort = "Author";
         }
         else if(nextSort === "Author")
         {
-            sortOptionButton.textContent = nextSort;
+            sortOptionButton.textContent = sortOptionButtonAuthorText;
             currentSort = nextSort;
             nextSort = "Pages";
         }
         else if(nextSort === "Pages")
         {
-            sortOptionButton.textContent = nextSort;
+            sortOptionButton.textContent = sortOptionButtonPagesText;
             currentSort = nextSort;
             nextSort = "Status";
         }
         else if(nextSort === "Status")
         {
-            sortOptionButton.textContent = nextSort;
+            sortOptionButton.textContent = sortOptionButtonStatusText;
             currentSort = nextSort;
             nextSort = "Title";
         }
