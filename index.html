@@ -8,7 +8,8 @@
     <title>Library</title>
 </head>
 <body>
-    <div id="header">
+    <div id="top">
+        <div id="header">
         <div id="headerLeft">Library</div>
         <div id="headerRight">
             <div class="addCard">
@@ -36,7 +37,18 @@
                 </svg>
             </div>
         </div>
+        </div>
+        <div id="searchbar">
+            <div class="search-wrapper">
+                <input type="text" name="" id="search-item" placeholder="Search book" 
+                onkeyup="search()">
+            </div>
+            <div class="dropdown-search">
+                <button type="button" class="defaultOption">Title</button>
+            </div>
+        </div>
     </div>
+    
     <div id="bookshelf">
         <div id="shelf">
             <div class="bookCard"> <!--add card-->

@@ -115,6 +115,9 @@ function addVisualBook({title, author, pages, status})
     divclass_cardContent.classList.add('cardContent');
     divclass_bookTitle.classList.add('bookTitle');
     divclass_content.classList.add('content');
+    div_Author.classList.add('bookAuthor');
+    div_Pages.classList.add('bookPages');
+    div_Status.classList.add('bookStatus');
 
     //*******editing text and attributes*******
     svg.setAttribute('style', 'width:24px;height:24px');
@@ -228,7 +231,7 @@ function displayUpArrowButton() {
     } else {
       scrollUpArrow.style.display = "none";
     }
-  }
+}
 
 // *******languages*******
 let langs = document.querySelector(".lang-menu"),
@@ -374,6 +377,142 @@ let data = {
      }
 }
 
+// *******search bar*******
+
+//choosing sort option
+const sortOptionButton = document.querySelector(".defaultOption");
+let nextSort = "Author";
+let currentSort = "Title";
+function chooseSortOption()
+{
+    sortOptionButton.addEventListener("click", () => {
+        if(nextSort === "Title")
+        {
+            sortOptionButton.textContent = nextSort;
+            currentSort = nextSort;
+            nextSort = "Author";
+        }
+        else if(nextSort === "Author")
+        {
+            sortOptionButton.textContent = nextSort;
+            currentSort = nextSort;
+            nextSort = "Pages";
+        }
+        else if(nextSort === "Pages")
+        {
+            sortOptionButton.textContent = nextSort;
+            currentSort = nextSort;
+            nextSort = "Status";
+        }
+        else if(nextSort === "Status")
+        {
+            sortOptionButton.textContent = nextSort;
+            currentSort = nextSort;
+            nextSort = "Title";
+        }
+    });
+}
+
+//search field
+const search = () => {
+
+    const searchbar = document.getElementById("search-item").value.toLowerCase();
+    const books = document.querySelectorAll(".bookCard");
+    const bContent= document.getElementsByClassName("cardContent");
+
+    switch(currentSort)
+    {
+        case "Title":
+            for(let i = 0; i<bContent.length; i++)
+            {
+                let match = books[i].getElementsByClassName("bookTitle")[0];
+                
+                if(match)
+                {
+                    let textValue = match.textContent || match.innerHTML
+
+                    if(textValue.toLowerCase().indexOf(searchbar) > -1)
+                    {
+                        books[i].style.display = "";
+                    }
+                    else
+                    {
+                        books[i].style.display = "none";
+                    }
+                }
+            }
+            break;
+
+        case "Author":
+            for(let i = 0; i<bContent.length; i++)
+            {
+                let match = books[i].getElementsByClassName("bookAuthor")[0];
+                
+                if(match)
+                {
+                    let textValue = match.textContent || match.innerHTML
+
+                    if(textValue.toLowerCase().indexOf(searchbar) > -1)
+                    {
+                        books[i].style.display = "";
+                    }
+                    else
+                    {
+                        books[i].style.display = "none";
+                    }
+                }
+            }
+            break;
+
+        case "Pages":
+            for(let i = 0; i<bContent.length; i++)
+            {
+                let match = books[i].getElementsByClassName("bookPages")[0];
+                
+                if(match)
+                {
+                    let textValue = match.textContent || match.innerHTML
+
+                    if(textValue.toLowerCase().indexOf(searchbar) > -1)
+                    {
+                        books[i].style.display = "";
+                    }
+                    else
+                    {
+                        books[i].style.display = "none";
+                    }
+                }
+            }
+            break;
+
+        case "Status":
+            for(let i = 0; i<bContent.length; i++)
+            {
+                let match = books[i].getElementsByClassName("bookStatus")[0];
+                
+                if(match)
+                {
+                    let textValue = match.textContent || match.innerHTML
+
+                    if(textValue.toLowerCase().indexOf(": " + searchbar) > -1)
+                    {
+                        books[i].style.display = "";
+                    }
+                    else
+                    {
+                        books[i].style.display = "none";
+                    }
+                }
+            }
+            break;
+
+        default:
+            console.log("didn't work T-T");
+    }
+}
+
+
+
 // *******variables*******
 const closeFormButton = document.querySelector('#closeFormButton');
 const addBookBg = document.querySelector('#addBookBg');
@@ -425,5 +564,6 @@ showAddNewBookForm();
 newBook();
 updateBookIndex();
 scrollToTop();
+chooseSortOption();
 window.onscroll = function() {displayUpArrowButton()};
 console.log(myLibrary);
