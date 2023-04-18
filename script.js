@@ -51,6 +51,14 @@ function hideClearLibraryCard()
     });
 }
 
+function removeAllBooks()
+{
+    clearLibraryButtonConfirm.addEventListener('click', () => 
+    {
+        localStorage.removeItem("myLibrary");
+        location.reload(true);
+    });
+}
 
 function Book(title, author, pages, status)
 {
@@ -623,6 +631,7 @@ showHelpCard();
 
 showClearLibraryCard();
 hideClearLibraryCard();
+removeAllBooks()
 
 hideAddNewBookForm(closeFormButton);
 hideAddNewBookForm(confirmButton);
