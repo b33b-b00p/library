@@ -316,6 +316,11 @@ input#bookStatus {
     color: rgba(0, 0, 0, 70%);
     margin-top: 10px;
 }
+#clearLibraryButtonConfirm {
+    box-shadow: 0px 0px 3px red;
+    border: 1px solid red;
+    color: red;
+}
 /**/
 .lang-menu {
     /* margin-top: 25px; */

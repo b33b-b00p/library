@@ -290,6 +290,9 @@ let helpCardHeader = document.querySelector(".helpCardHeader"),
     tipDescription3 = document.querySelector("#tipDescription3"),
     tipDescription4 = document.querySelector("#tipDescription4"),
     helpCardSortOptionButton = document.querySelector(".helpCardSortButton");
+// ClearLibraryCard
+let clearLibraryCardHeaderText = document.querySelector(".clearLibraryCardHeader"),
+    clearLibraryCardContentText = document.querySelector(".clearLibraryCardContent");
 //searchbar
 let sortOptionButtonTitleText = "Title",
     sortOptionButtonAuthorText = "Author",
@@ -365,6 +368,12 @@ function checkSelectedLang()
     firstWord4.textContent = data[attr].firstWord4
     tipDescription4.textContent = data[attr].tipDescription4
     helpCardSortOptionButton.textContent = data[attr].sortOptionButtonTitleText
+    clearLibraryPromptText.textContent = data[attr].clearLibraryPromptText
+    // ClearLibraryCard
+    clearLibraryCardHeaderText.textContent = data[attr].clearLibraryCardHeaderText
+    clearLibraryCardContentText.textContent = data[attr].clearLibraryCardContentText
+    clearLibraryButtonConfirm.textContent = data[attr].clearLibraryButtonConfirmText
+    clearLibraryButtonCancel.textContent = data[attr].clearLibraryButtonCancelText
     //searchbar
     sortOptionButton.textContent = data[attr].sortOptionButtonTitleText //displaying "Title" as a default sort option
     sortOptionButtonTitleText = data[attr].sortOptionButtonTitleText
@@ -399,6 +408,12 @@ let data = {
         tipDescription3: "to remove book form your shelf",
         firstWord4: "Toggle",
         tipDescription4: "to change the sort option",
+        clearLibraryPromptText: "want to clear the Library?",
+        // ClearLibraryCard
+        clearLibraryCardHeaderText: "Clear Library",
+        clearLibraryCardContentText: "Are you sure you want to remove all books from your Library?",
+        clearLibraryButtonConfirmText: "Confirm",
+        clearLibraryButtonCancelText: "Cancel",
         //searchbar
         searchFieldPlaceholder: "Search book",
         sortOptionButtonTitleText: "Title",
@@ -432,6 +447,12 @@ let data = {
         tipDescription3: ", чтобы убрать книгу с полки",
         firstWord4: "Нажмите",
         tipDescription4: ", чтобы изменить вариант сортировки",
+        clearLibraryPromptText: "хотите очистить библиотеку?",
+        // ClearLibraryCard
+        clearLibraryCardHeaderText: "Очистить библиотеку",
+        clearLibraryCardContentText: "Вы уверены, что хотите удалить все книги из своей библиотеки?",
+        clearLibraryButtonConfirmText: "Подтвердить",
+        clearLibraryButtonCancelText: "Отменить",
         //searchbar
         searchFieldPlaceholder: "Поиск книги",
         sortOptionButtonTitleText: "Название",
