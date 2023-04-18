@@ -401,7 +401,7 @@ let data = {
         tipDescription4: "to change the sort option",
         clearLibraryPromptText: "want to clear the Library?",
         // ClearLibraryCard
-        clearLibraryCardHeaderText: "Clear Library",
+        clearLibraryCardHeaderText: "Clear the Library",
         clearLibraryCardContentText: "Are you sure you want to remove all books from your Library?",
         clearLibraryButtonConfirmText: "Confirm",
         clearLibraryButtonCancelText: "Cancel",
