@@ -164,7 +164,6 @@ function addVisualBook({title, author, pages, status})
     checkStatus(status, divclass_bigLeftLetter, div_Status, div_Author, div_Pages, author, pages);
     updateBookIndex();
     console.log(myLibrary);
-    //console.log(indexLib);
     removeBook(thisBook, divclass_removeButton, divclass_bookCard);
     toggleBigLetterStatus(title, author, pages, status, divclass_bigLeftLetter, div_Status, div_Author, div_Pages);
 }
@@ -264,8 +263,6 @@ function displayUpArrowButton() {
 let langs = document.querySelector(".lang-menu"),
     link = document.querySelectorAll("a");
 
-// let attr;
-
 //bookCard
 let authorText = "Author: "
     pagesText = "Pages: ",
@@ -308,32 +305,9 @@ link.forEach(el=>{
         let attr = el.getAttribute("language")
 
         
-        localStorage.setItem('selectedLang', JSON.stringify(attr)); //new
-        // attr = JSON.parse(localStorage.getItem('selectedLang')); //new
+        localStorage.setItem('selectedLang', JSON.stringify(attr));
 
-        // // bookCard
-        // authorText = data[attr].authorText
-        // pagesText = data[attr].pagesText
-        // statusText = data[attr].statusText
-        // statusReadText = data[attr].statusReadText
-        // statusUnreadText = data[attr].statusUnreadText
-        // // addBookForm
-        // formHeader.textContent = data[attr].formHeader
-        // bookTitlePlaceholder.setAttribute("placeholder", data[attr].bookTitlePlaceholder)
-        // bookAuthorPlaceholder.setAttribute("placeholder", data[attr].bookAuthorPlaceholder)
-        // bookPagesPlaceholder.setAttribute("placeholder", data[attr].bookPagesPlaceholder)
-        // checkboxLabelText.textContent = data[attr].checkboxLabelText
-        // confirmButtonTextTranslation.textContent = data[attr].confirmButtonTextTranslation
-        // // helpCard
-        // helpCardHeader.textContent = data[attr].helpCardHeader
-        // firstWord1.textContent = data[attr].firstWord1
-        // tipDescription1.textContent = data[attr].tipDescription1
-        // firstWord2.textContent = data[attr].firstWord2
-        // tipDescription2.textContent = data[attr].tipDescription2
-        // firstWord3.textContent = data[attr].firstWord3
-        // tipDescription3.textContent = data[attr].tipDescription3
-        // checkSelectedLang();
-        location.reload(true); //new
+        location.reload(true); //reloads the page to apply the language
     })
 })
 
@@ -508,7 +482,7 @@ const search = () => {
     switch(currentSort)
     {
         case "Title":
-            for(let i = 0; i<bContent.length; i++)
+            for(let i = 0; i < bContent.length; i++)
             {
                 let match = books[i].getElementsByClassName("bookTitle")[0];
                 
@@ -529,7 +503,7 @@ const search = () => {
             break;
 
         case "Author":
-            for(let i = 0; i<bContent.length; i++)
+            for(let i = 0; i < bContent.length; i++)
             {
                 let match = books[i].getElementsByClassName("bookAuthor")[0];
                 
@@ -550,7 +524,7 @@ const search = () => {
             break;
 
         case "Pages":
-            for(let i = 0; i<bContent.length; i++)
+            for(let i = 0; i < bContent.length; i++)
             {
                 let match = books[i].getElementsByClassName("bookPages")[0];
                 
@@ -571,7 +545,7 @@ const search = () => {
             break;
 
         case "Status":
-            for(let i = 0; i<bContent.length; i++)
+            for(let i = 0; i < bContent.length; i++)
             {
                 let match = books[i].getElementsByClassName("bookStatus")[0];
                 
@@ -632,15 +606,7 @@ let myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
 ];
 localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 
-// localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-
 let indexLib = [];
-// let book1 = new Book ('The Hobbit', 'J. R. R. Tolkien', '239', true);
-// myLibrary.push(book1);
-// addVisualBook('The Hobbit', 'J. R. R. Tolkien', '239', true);
-// let book2 = new Book ('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
-// myLibrary.push(book2);
-// addVisualBook('The Call of Cthulhu', 'H. P. Lovecraft', '40', false);
 
 
 // *******execution*******
