@@ -257,9 +257,12 @@ let helpCardHeader = document.querySelector(".helpCardHeader"),
     firstWord1 = document.querySelector("#firstWord1"),
     firstWord2 = document.querySelector("#firstWord2"),
     firstWord3 = document.querySelector("#firstWord3"),
+    firstWord4 = document.querySelector("#firstWord4"),
     tipDescription1 = document.querySelector("#tipDescription1"),
     tipDescription2 = document.querySelector("#tipDescription2"),
-    tipDescription3 = document.querySelector("#tipDescription3");
+    tipDescription3 = document.querySelector("#tipDescription3"),
+    tipDescription4 = document.querySelector("#tipDescription4"),
+    helpCardSortOptionButton = document.querySelector(".helpCardSortButton");
 //searchbar
 let sortOptionButtonTitleText = "Title",
     sortOptionButtonAuthorText = "Author",
@@ -332,6 +335,9 @@ function checkSelectedLang()
     tipDescription2.textContent = data[attr].tipDescription2
     firstWord3.textContent = data[attr].firstWord3
     tipDescription3.textContent = data[attr].tipDescription3
+    firstWord4.textContent = data[attr].firstWord4
+    tipDescription4.textContent = data[attr].tipDescription4
+    helpCardSortOptionButton.textContent = data[attr].sortOptionButtonTitleText
     //searchbar
     sortOptionButton.textContent = data[attr].sortOptionButtonTitleText //displaying "Title" as a default sort option
     sortOptionButtonTitleText = data[attr].sortOptionButtonTitleText
@@ -364,6 +370,8 @@ let data = {
         tipDescription2: "to change book status",
         firstWord3: "Press",
         tipDescription3: "to remove book form your shelf",
+        firstWord4: "Toggle",
+        tipDescription4: "to change the sort option",
         //searchbar
         searchFieldPlaceholder: "Search book",
         sortOptionButtonTitleText: "Title",
@@ -395,6 +403,8 @@ let data = {
         tipDescription2: ", чтобы изменить статус книги",
         firstWord3: "Нажмите",
         tipDescription3: ", чтобы убрать книгу с полки",
+        firstWord4: "Нажмите",
+        tipDescription4: ", чтобы изменить вариант сортировки",
         //searchbar
         searchFieldPlaceholder: "Поиск книги",
         sortOptionButtonTitleText: "Название",

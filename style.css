@@ -234,6 +234,7 @@ input#bookStatus {
     justify-content: center;
     column-gap: 5px;
     font-size: 1.3em;
+    margin: 0 5%;
 }
 .helpCardBigLetter {
     font-size: 1.4em;
@@ -250,6 +251,16 @@ input#bookStatus {
     top: 3%;
     color: gray;
     opacity: 70%;
+}
+.helpCardSortButton {
+    line-height: 1.9;
+    border-left: 2px solid rgb(168, 168, 168);
+    color: grey;
+    border-radius: 0px 6px 6px 0px;
+    padding: 3px 3%;
+    font-size: 1em;
+    box-shadow: 1px 1px 7px #a5aab1;
+    margin-right: 5px;
 }
 /**/
 .lang-menu {
