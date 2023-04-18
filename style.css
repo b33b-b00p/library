@@ -398,6 +398,22 @@ a.active{
     padding: 0;
     font-size: 1.2em;
 }
+/**/
+.addCard,
+#langButton,
+#helpButton,
+.readStatus,
+.unreadStatus,
+.removeButton,
+#checkboxLabelText,
+#confirmButton,
+#closeFormButton,
+#closeHelpCard,
+#clearLibraryButtonConfirm,
+#clearLibraryButtonCancel,
+#scrollUpArrow {
+    cursor: pointer;
+}
 
 /*mobile*/
 #scrollUpArrow {
