@@ -17,6 +17,23 @@ function hideAddNewBookForm(button)
     });
 }
 
+function toggleLangMenu()
+{
+    langButton.addEventListener('click', () => 
+    {
+        if(langListShown === false)
+        {
+            langList.style.display = 'block';
+            langListShown = true;
+        }
+        else
+        {
+            langList.style.display = 'none';
+            langListShown = false;
+        }
+    });
+}
+
 function showHelpCard()
 {
     helpButton.addEventListener('click', () => 
@@ -589,6 +606,10 @@ const clearLibraryPopupCard = document.querySelector('#clearLibraryPopupCard');
 const clearLibraryButtonConfirm = document.querySelector("#clearLibraryButtonConfirm");
 const clearLibraryButtonCancel = document.querySelector("#clearLibraryButtonCancel");
 
+const langButton = document.querySelector('#langButton');
+const langList = langs.querySelector('ul');
+let langListShown = false;
+
 let removeButtons = document.querySelectorAll('.removeButton');
 let myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
     {
@@ -616,13 +637,16 @@ myLibrary.forEach(addVisualBook);
 hideHelpCard();
 showHelpCard();
 
+toggleLangMenu();
+
 showClearLibraryCard();
 hideClearLibraryCard();
-removeAllBooks()
+removeAllBooks();
 
 hideAddNewBookForm(closeFormButton);
 hideAddNewBookForm(confirmButton);
 showAddNewBookForm();
+
 newBook();
 updateBookIndex();
 scrollToTop();

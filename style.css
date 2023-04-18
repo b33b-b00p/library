@@ -333,8 +333,8 @@ input#bookStatus {
     border-radius: 5px;
     display: none;
     position: absolute; 
-    top: 38px;
-    left: -58px;
+    top: 110%;
+    left: -160%;
 }
 .lang-menu ul li{
     list-style: none;
@@ -354,9 +354,6 @@ input#bookStatus {
 }
 a.active{
     background: rgba(128, 128, 128, 0.45); 
-}
-.lang-menu:hover  ul {
-    display: block;
 }
 /**/
 #top {
