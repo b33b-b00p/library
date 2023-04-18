@@ -220,7 +220,7 @@ input#bookStatus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 15px;
+    /* row-gap: 15px; */
     position: relative;
 }
 .helpCardHeader {
@@ -261,6 +261,60 @@ input#bookStatus {
     font-size: 1em;
     box-shadow: 1px 1px 7px #a5aab1;
     margin-right: 5px;
+}
+#clearLibraryPromptText {
+    font-size: 0.9em;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #464545;
+    cursor: pointer;
+}
+/**/
+#clearLibraryPopupCard {
+    background-color: #ebeef2;
+    width: 38em;
+    height: 25em;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    position: relative;
+    row-gap: 5%;
+    display: none;
+}
+.clearLibraryCardHeader {
+    margin-bottom: 10px;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+.clearLibraryCardContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    font-size: 1.3em;
+    margin: 0 5%;
+    text-align: center;
+}
+.clearLibraryConfirmationButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 15%;
+}
+.clearLibraryConfirmationButtons button {
+    width: auto;
+    padding: 14px 26px;
+    font-size: 1.3em;
+    border-radius: 26px;
+    border: 0;
+    background-color: #ced4da;
+    box-shadow: 0px 0px 3px black;
+    color: rgba(0, 0, 0, 70%);
+    margin-top: 10px;
 }
 /**/
 .lang-menu {

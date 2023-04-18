@@ -33,6 +33,25 @@ function hideHelpCard()
     });
 }
 
+function showClearLibraryCard()
+{
+    clearLibraryPromptText.addEventListener('click', () => 
+    {
+        clearLibraryPopupCard.style.display = 'flex';
+        helpPopupCard.style.display = 'none';
+    });
+}
+
+function hideClearLibraryCard()
+{
+    clearLibraryButtonCancel.addEventListener('click', () => 
+    {
+        clearLibraryPopupCard.style.display = 'none';
+        helpPopupCard.style.display = 'flex';
+    });
+}
+
+
 function Book(title, author, pages, status)
 {
     this.title = title
@@ -561,6 +580,12 @@ const helpPopupBg = document.querySelector('#helpPopupBg');
 const closeHelpCardButton = document.querySelector('#closeHelpCard');
 const scrollUpArrow = document.querySelector('#scrollUpArrow');
 
+const helpPopupCard = document.querySelector('#helpPopupCard');
+const clearLibraryPromptText = document.querySelector('#clearLibraryPromptText');
+const clearLibraryPopupCard = document.querySelector('#clearLibraryPopupCard');
+const clearLibraryButtonConfirm = document.querySelector("#clearLibraryButtonConfirm");
+const clearLibraryButtonCancel = document.querySelector("#clearLibraryButtonCancel");
+
 let removeButtons = document.querySelectorAll('.removeButton');
 let myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [
     {
@@ -595,6 +620,10 @@ myLibrary.forEach(addVisualBook);
 
 hideHelpCard();
 showHelpCard();
+
+showClearLibraryCard();
+hideClearLibraryCard();
+
 hideAddNewBookForm(closeFormButton);
 hideAddNewBookForm(confirmButton);
 showAddNewBookForm();
