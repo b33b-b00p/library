@@ -124,7 +124,8 @@ body {
     box-shadow: 1px 2px 5px #bfbfbf;
 }
 #headerLeft {
-    font-size: 43px;
+    /* font-size: 43px; */
+    font-size: 2.69em;
     font-weight: bold;
 }
 #headerRight {
@@ -470,6 +471,9 @@ a.active{
 }
 @media (max-width: 819px) {
 
+    #headerRight {
+        column-gap: 15px;
+    }
     #bookshelf {
         padding: 0;
     }
@@ -487,16 +491,45 @@ a.active{
         width: 31em;
         height: 25em;
     }
+    .helpCardContent {
+        font-size: 1.2em;
+    }
+    #clearLibraryPopupCard {
+        width: 31em;
+        height: 25em;
+    }
+    .clearLibraryConfirmationButtons {
+        column-gap: 5%;
+        font-size: 0.8em;
+    }
 }
 @media (orientation: landscape) and (max-width: 819px) {
+    
+    #headerRight {
+        column-gap: 15px;
+    }
     #helpPopupCard {
         width: 31em;
         height: 19em;
+    }
+    .helpCardContent {
+        font-size: 1em;
     }
     #addBookForm {
         width: 31em;
         height: 19em;
         row-gap: 10px;
+    }
+    #clearLibraryPopupCard {
+        width: 31em;
+        height: 19em;
+    }
+    .clearLibraryCardContent {
+        font-size: 1.2em;
+    }
+    .clearLibraryConfirmationButtons {
+        column-gap: 5%;
+        font-size: 0.8em;
     }
     .formHeader {
         font-size: 1.4em;
