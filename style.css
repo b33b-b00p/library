@@ -341,14 +341,13 @@ input#bookStatus {
 }
 .lang-menu ul li a{
     color: black;
-    width: 125px; /*change*/
+    width: 125px;
     display: block; 
-    padding: 5px 10px; /*change*/
     text-decoration: none;
-    padding: 12px; /*change*/
+    padding: 12px;
     font-weight: 650; 
     transition: .3s linear; 
-    border-radius: 10%; /*change*/
+    border-radius: 5%;
 }
 .lang-menu ul li a:hover{
     background-color: #ced4da;
